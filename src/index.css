@@ -288,6 +288,7 @@ p {
     padding: 16px;
   }
 }
+<<<<<<< HEAD
 /* Landing Page Styles */
 .landing-page {
   min-height: 100vh;
@@ -468,3 +469,5 @@ p {
   .hero-cta { flex-direction: column; width: 100%; }
   .features-grid { grid-template-columns: 1fr; padding: 40px 24px; }
 }
+=======
+>>>>>>> e55602deb20fa3a26ac62a804ddfff12515f3536
