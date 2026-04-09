@@ -67,11 +67,7 @@ export default function SignUp() {
         </div>
 
         <div className="auth-footer">
-<<<<<<< HEAD
            Already have an account? <Link to="/login">Sign in</Link>
-=======
-           Already have an account? <Link to="/">Sign in</Link>
->>>>>>> e55602deb20fa3a26ac62a804ddfff12515f3536
         </div>
 
         {/* Decorative */}
