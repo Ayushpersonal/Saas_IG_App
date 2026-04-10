@@ -1,8 +1,34 @@
 import React from 'react';
 import { Settings, Lock, Mail, ArrowRight, Shield, Activity } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 export default function Login() {
+  const { login } = useAuth();
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    try {
+      await login(email, password);
+      navigate('/dashboard');
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleDemoLogin = (e) => {
+    e.preventDefault();
+    setEmail('demo@cartflow.ai');
+    setPassword('demo1234');
+  };
+
   return (
     <div className="auth-page">
       {/* Background Subtle Detail */}
@@ -24,18 +50,37 @@ export default function Login() {
         {/* Login Card */}
         <div className="card-lowest auth-card" style={{ backdropFilter: 'blur(12px)', backgroundColor: 'rgba(255,255,255,0.8)' }}>
           <div className="form-group margin-bottom-8">
-            <h2>Welcome back</h2>
-            <p className="text-sm margin-top-2" style={{ color: 'var(--sys-color-on-surface-variant)' }}>Enter your credentials to access your dashboard.</p>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+              <div>
+                <h2>Welcome back</h2>
+                <p className="text-sm margin-top-2" style={{ color: 'var(--sys-color-on-surface-variant)' }}>Enter your credentials to access your dashboard.</p>
+              </div>
+              <button 
+                onClick={handleDemoLogin}
+                className="btn-text"
+                style={{ fontSize: '0.75rem', padding: '4px 8px', backgroundColor: 'var(--sys-color-secondary-container)', color: 'var(--sys-color-on-secondary-container)', borderRadius: '6px', border: 'none', cursor: 'pointer', fontWeight: 600 }}
+              >
+                Use Demo
+              </button>
+            </div>
           </div>
 
-          <form className="auth-form">
+          <form className="auth-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label className="label-sm" htmlFor="email">Email Address</label>
               <div className="input-with-icon">
                 <div className="input-icon">
                   <Mail size={18} color="var(--sys-color-outline)" />
                 </div>
-                <input id="email" type="email" placeholder="name@company.com" required className="modern-input" />
+                <input 
+                  id="email" 
+                  type="email" 
+                  placeholder="name@company.com" 
+                  required 
+                  className="modern-input"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
               </div>
             </div>
 
@@ -48,12 +93,23 @@ export default function Login() {
                 <div className="input-icon">
                   <Lock size={18} color="var(--sys-color-outline)" />
                 </div>
-                <input id="password" type="password" placeholder="••••••••" required className="modern-input" />
+                <input 
+                  id="password" 
+                  type="password" 
+                  placeholder="••••••••" 
+                  required 
+                  className="modern-input"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
               </div>
+              <p style={{ fontSize: '11px', color: 'var(--sys-color-outline)', marginTop: '8px' }}>
+                Quick Demo: <b>demo@cartflow.ai</b> / <b>demo1234</b>
+              </p>
             </div>
 
-            <button type="submit" className="btn-primary" onClick={(e) => {e.preventDefault(); window.location.href='/dashboard'}}>
-              <span>Sign In</span>
+            <button type="submit" className="btn-primary" disabled={isSubmitting}>
+              <span>{isSubmitting ? 'Signing In...' : 'Sign In'}</span>
               <ArrowRight size={18} />
             </button>
 
