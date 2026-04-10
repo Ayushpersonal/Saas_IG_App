@@ -52,10 +52,10 @@ export default function Login() {
           <div className="form-group margin-bottom-8">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
               <div>
-                <h2>Welcome back</h2>
+                <h2>Welcome Back</h2>
                 <p className="text-sm margin-top-2" style={{ color: 'var(--sys-color-on-surface-variant)' }}>Enter your credentials to access your dashboard.</p>
               </div>
-              <button 
+              <button
                 onClick={handleDemoLogin}
                 className="btn-text"
                 style={{ fontSize: '0.75rem', padding: '4px 8px', backgroundColor: 'var(--sys-color-secondary-container)', color: 'var(--sys-color-on-secondary-container)', borderRadius: '6px', border: 'none', cursor: 'pointer', fontWeight: 600 }}
@@ -72,11 +72,11 @@ export default function Login() {
                 <div className="input-icon">
                   <Mail size={18} color="var(--sys-color-outline)" />
                 </div>
-                <input 
-                  id="email" 
-                  type="email" 
-                  placeholder="name@company.com" 
-                  required 
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="name@company.com"
+                  required
                   className="modern-input"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -93,11 +93,11 @@ export default function Login() {
                 <div className="input-icon">
                   <Lock size={18} color="var(--sys-color-outline)" />
                 </div>
-                <input 
-                  id="password" 
-                  type="password" 
-                  placeholder="••••••••" 
-                  required 
+                <input
+                  id="password"
+                  type="password"
+                  placeholder="••••••••"
+                  required
                   className="modern-input"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -127,7 +127,7 @@ export default function Login() {
         </div>
 
         <div className="auth-footer">
-           Don't have an account? <Link to="/signup">Create an account</Link>
+          Don't have an account? <Link to="/signup">Create an account</Link>
         </div>
 
         {/* Decorative */}
