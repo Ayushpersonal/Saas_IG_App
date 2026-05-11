@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Settings, Zap, MessageSquare, BarChart3, ArrowRight, ShieldCheck, Globe } from 'lucide-react';
+import { Settings, Zap, MessageSquare, BarChart3, ArrowRight, ShieldCheck, Globe, Home, Users, ShoppingBag, TrendingUp, LayoutDashboard } from 'lucide-react';
+
 
 export default function Landing() {
   return (
@@ -47,27 +48,71 @@ export default function Landing() {
                 <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#ffbd2e' }}></div>
                 <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#27c93f' }}></div>
              </div>
-             <div style={{ display: 'grid', gridTemplateColumns: '250px 1fr', gap: '24px', height: '400px' }}>
+             <div style={{ display: 'grid', gridTemplateColumns: '200px 1fr', gap: '24px', height: '450px' }}>
                 <div style={{ backgroundColor: 'var(--sys-color-surface-container-lowest)', borderRadius: '12px', padding: '16px' }}>
-                   <div style={{ height: '20px', width: '60%', backgroundColor: 'var(--sys-color-surface-container-high)', borderRadius: '4px', marginBottom: '12px' }}></div>
-                   <div style={{ height: '20px', width: '80%', backgroundColor: 'var(--sys-color-surface-container-high)', borderRadius: '4px', marginBottom: '32px' }}></div>
-                   <div style={{ height: '32px', width: '100%', backgroundColor: 'var(--sys-color-primary)', opacity: 0.1, borderRadius: '8px', marginBottom: '12px' }}></div>
-                   {[1,2,3,4].map(i => (
-                     <div key={i} style={{ height: '20px', width: '100%', backgroundColor: 'var(--sys-color-surface-container-high)', borderRadius: '4px', marginBottom: '12px', opacity: 0.5 }}></div>
-                   ))}
-                </div>
-                <div style={{ backgroundColor: 'var(--sys-color-surface-container-lowest)', borderRadius: '12px', padding: '24px' }}>
-                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '32px' }}>
-                      <div style={{ height: '24px', width: '150px', backgroundColor: 'var(--sys-color-surface-container-highest)', borderRadius: '6px' }}></div>
-                      <div style={{ height: '32px', width: '100px', backgroundColor: 'var(--sys-color-primary)', borderRadius: '8px' }}></div>
+                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '24px', padding: '8px' }}>
+                      <Settings size={20} color="var(--sys-color-primary)" />
+                      <span style={{ fontWeight: 700, fontSize: '0.875rem' }}>CartFlow AI</span>
                    </div>
-                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
-                      {[1,2,3].map(i => (
-                        <div key={i} style={{ height: '100px', backgroundColor: 'var(--sys-color-surface-container-low)', borderRadius: '12px', padding: '16px' }}>
-                           <div style={{ height: '12px', width: '40%', backgroundColor: 'var(--sys-color-surface-container-highest)', borderRadius: '4px', marginBottom: '8px' }}></div>
-                           <div style={{ height: '24px', width: '70%', backgroundColor: 'var(--sys-color-on-surface)', opacity: 0.1, borderRadius: '4px' }}></div>
+                   <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      {[
+                        { icon: <LayoutDashboard size={18} />, label: 'Dashboard', active: true },
+                        { icon: <MessageSquare size={18} />, label: 'Conversations' },
+                        { icon: <Users size={18} />, label: 'Customers' },
+                        { icon: <Zap size={18} />, label: 'Automations' },
+                        { icon: <ShoppingBag size={18} />, label: 'Orders' },
+                      ].map((item, i) => (
+                        <div key={i} style={{ 
+                          display: 'flex', 
+                          alignItems: 'center', 
+                          gap: '12px', 
+                          padding: '10px 12px', 
+                          borderRadius: '8px',
+                          backgroundColor: item.active ? 'var(--sys-color-primary-container)' : 'transparent',
+                          color: item.active ? 'var(--sys-color-on-primary)' : 'var(--sys-color-on-surface-variant)',
+                          fontSize: '0.8125rem',
+                          fontWeight: 500,
+                          opacity: item.active ? 1 : 0.7
+                        }}>
+                          {item.icon}
+                          {item.label}
                         </div>
                       ))}
+                   </div>
+                </div>
+                <div style={{ backgroundColor: 'var(--sys-color-surface-container-lowest)', borderRadius: '12px', padding: '24px' }}>
+                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px' }}>
+                      <div>
+                        <h4 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '4px' }}>Overview</h4>
+                        <p style={{ fontSize: '0.75rem', color: 'var(--sys-color-on-surface-variant)' }}>Updated just now</p>
+                      </div>
+                      <div style={{ padding: '8px 16px', backgroundColor: 'var(--sys-color-primary)', color: 'white', borderRadius: '8px', fontSize: '0.8125rem', fontWeight: 600 }}>
+                         New Report
+                      </div>
+                   </div>
+                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
+                      {[
+                        { label: 'Total Revenue', value: '$24,500', trend: '+12%', icon: <TrendingUp size={16} /> },
+                        { label: 'Saved Carts', value: '1,284', trend: '+18%', icon: <ShoppingBag size={16} /> },
+                        { label: 'Conv. Rate', value: '3.4%', trend: '+5%', icon: <Zap size={16} /> },
+                      ].map((stat, i) => (
+                        <div key={i} style={{ backgroundColor: 'var(--sys-color-surface-container-low)', borderRadius: '12px', padding: '16px' }}>
+                           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                              <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--sys-color-on-surface-variant)' }}>{stat.label}</span>
+                              <div style={{ color: 'var(--sys-color-primary)', opacity: 0.8 }}>{stat.icon}</div>
+                           </div>
+                           <div style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '4px' }}>{stat.value}</div>
+                           <div style={{ fontSize: '0.75rem', color: '#10b981', fontWeight: 600 }}>{stat.trend} <span style={{ color: 'var(--sys-color-on-surface-variant)', fontWeight: 400 }}>vs last month</span></div>
+                        </div>
+                      ))}
+                   </div>
+                   <div style={{ marginTop: '24px', height: '120px', backgroundColor: 'var(--sys-color-surface-container-low)', borderRadius: '12px', padding: '16px', position: 'relative', overflow: 'hidden' }}>
+                      <div style={{ fontSize: '0.75rem', fontWeight: 600, marginBottom: '16px' }}>Recovery Performance</div>
+                      <div style={{ display: 'flex', alignItems: 'flex-end', gap: '8px', height: '60px' }}>
+                         {[40, 70, 45, 90, 65, 80, 50, 85].map((h, i) => (
+                           <div key={i} style={{ flex: 1, height: `${h}%`, backgroundColor: 'var(--sys-color-primary)', borderRadius: '4px', opacity: 0.2 + (i * 0.1) }}></div>
+                         ))}
+                      </div>
                    </div>
                 </div>
              </div>

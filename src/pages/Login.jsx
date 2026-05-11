@@ -1,5 +1,5 @@
 import React from 'react';
-import { Settings, Lock, Mail, ArrowRight, Shield, Activity } from 'lucide-react';
+import { Settings, Lock, Mail, ArrowRight, Shield, Activity, ArrowLeft } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
@@ -38,6 +38,11 @@ export default function Login() {
       </div>
 
       <main className="auth-main">
+        <Link to="/" className="nav-link" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '32px', opacity: 0.7 }}>
+          <ArrowLeft size={20} />
+          <span>Back to Home</span>
+        </Link>
+
         {/* Brand Identity */}
         <div className="auth-brand">
           <div className="brand-icon-wrapper">
