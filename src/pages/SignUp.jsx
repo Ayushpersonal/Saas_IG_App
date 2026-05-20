@@ -1,5 +1,5 @@
 import React from 'react';
-import { Settings, Lock, Mail, ArrowRight, User, Shield, Activity, ArrowLeft } from 'lucide-react';
+import { Lock, Mail, ArrowRight, User, Shield, Activity, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function SignUp() {
@@ -19,8 +19,8 @@ export default function SignUp() {
 
         {/* Brand Identity */}
         <div className="auth-brand">
-          <div className="brand-icon-wrapper">
-            <Settings size={32} color="var(--sys-color-on-primary)" strokeWidth={1.5} />
+          <div className="brand-icon-wrapper" style={{ backgroundColor: 'transparent', boxShadow: 'none', padding: 0 }}>
+            <img src="/logo.png" alt="CartFlow Logo" style={{ width: '72px', height: '72px', objectFit: 'contain' }} />
           </div>
           <h1>CartFlow AI</h1>
           <p style={{ color: 'var(--sys-color-secondary)', fontWeight: 500, letterSpacing: '-0.025em' }}>Create your workspace</p>

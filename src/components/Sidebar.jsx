@@ -17,18 +17,18 @@ export default function Sidebar() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    logout();
-    navigate('/login');
+    // Clear credentials manually without triggering React state updates
+    localStorage.removeItem('user');
+    // Hard redirect safely
+    window.location.href = '/';
   };
 
   return (
     <aside className="sidebar">
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '40px' }}>
-        <div style={{ backgroundColor: 'var(--sys-color-primary)', padding: '8px', borderRadius: '50%' }}>
-          <SettingsIcon size={20} color="var(--sys-color-on-primary)" />
-        </div>
+        <img src="/logo.png" alt="CartFlow AI Logo" style={{ width: '48px', height: '48px', objectFit: 'contain' }} />
         <div>
-          <h2 style={{ fontSize: '1.25rem', margin: 0 }}>CartFlow AI</h2>
+          <h2 style={{ fontSize: '1.25rem', margin: 0, fontWeight: 700 }}>CartFlow AI</h2>
           <span style={{ fontSize: '0.75rem', color: 'var(--sys-color-secondary)' }}>Automation Hub</span>
         </div>
       </div>
@@ -57,29 +57,29 @@ export default function Sidebar() {
           </NavLink>
         ))}
       </nav>
-      
+
       <div style={{ marginTop: '24px', paddingTop: '24px', borderTop: '1px solid var(--sys-color-surface-container-high)' }}>
         <div style={{ display: 'flex', gap: '12px', alignItems: 'center', marginBottom: '16px' }}>
-           <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'var(--sys-color-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 'bold' }}>
-             {user?.name?.charAt(0) || 'U'}
-           </div>
-           <div style={{ flex: 1 }}>
-              <div style={{ fontWeight: 600, fontSize: '0.875rem' }}>{user?.name || 'User'}</div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--sys-color-secondary)' }}>{user?.email || 'Admin'}</div>
-           </div>
+          <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'var(--sys-color-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 'bold' }}>
+            {user?.name?.charAt(0) || 'U'}
+          </div>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontWeight: 600, fontSize: '0.875rem' }}>{user?.name || 'User'}</div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--sys-color-secondary)' }}>{user?.email || 'Admin'}</div>
+          </div>
         </div>
-        <button 
+        <button
           onClick={handleLogout}
-          style={{ 
-            width: '100%', 
-            display: 'flex', 
-            alignItems: 'center', 
-            gap: '12px', 
-            padding: '12px 16px', 
-            borderRadius: '12px', 
-            border: 'none', 
-            backgroundColor: 'transparent', 
-            color: 'var(--sys-color-error, #ba1a1a)', 
+          style={{
+            width: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '12px',
+            padding: '12px 16px',
+            borderRadius: '12px',
+            border: 'none',
+            backgroundColor: 'transparent',
+            color: 'var(--sys-color-error, #ba1a1a)',
             cursor: 'pointer',
             fontWeight: 600,
             fontSize: '0.875rem'

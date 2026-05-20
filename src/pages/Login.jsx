@@ -1,5 +1,5 @@
 import React from 'react';
-import { Settings, Lock, Mail, ArrowRight, Shield, Activity, ArrowLeft } from 'lucide-react';
+import { Lock, Mail, ArrowRight, Shield, Activity, ArrowLeft } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
@@ -45,8 +45,8 @@ export default function Login() {
 
         {/* Brand Identity */}
         <div className="auth-brand">
-          <div className="brand-icon-wrapper">
-            <Settings size={32} color="var(--sys-color-on-primary)" strokeWidth={1.5} />
+          <div className="brand-icon-wrapper" style={{ backgroundColor: 'transparent', boxShadow: 'none', padding: 0 }}>
+            <img src="/logo.png" alt="CartFlow AI Logo" style={{ width: '72px', height: '72px', objectFit: 'contain' }} />
           </div>
           <h1>CartFlow AI</h1>
           <p style={{ color: 'var(--sys-color-secondary)', fontWeight: 500, letterSpacing: '-0.025em' }}>Automation Hub</p>

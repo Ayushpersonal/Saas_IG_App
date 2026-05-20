@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Settings, Zap, MessageSquare, BarChart3, ArrowRight, ShieldCheck, Globe, Home, Users, ShoppingBag, TrendingUp, LayoutDashboard } from 'lucide-react';
+import { Zap, MessageSquare, BarChart3, ArrowRight, ShieldCheck, Globe, Home, Users, ShoppingBag, TrendingUp, LayoutDashboard } from 'lucide-react';
+import './Landing.css';
 
 
 export default function Landing() {
@@ -11,15 +12,14 @@ export default function Landing() {
 
       <nav className="nav-container">
         <Link to="/" className="nav-logo">
-          <Settings size={28} strokeWidth={2.5} />
-          <span>CartFlow AI</span>
+          <img src="/fulllogo.png" alt="CartFlow AI" style={{ height: '128px', objectFit: 'contain' }} />
         </Link>
         <div className="nav-links">
           <a href="#features" className="nav-link">Features</a>
           <a href="#solutions" className="nav-link">Solutions</a>
           <a href="#pricing" className="nav-link">Pricing</a>
           <Link to="/login" className="nav-link" style={{ fontWeight: 700, color: 'var(--sys-color-primary)' }}>Sign In</Link>
-          <Link to="/signup" className="btn-primary" style={{ width: 'auto', padding: '10px 24px' }}>Get Started</Link>
+          <Link to="/signup" className="btn-primary" style={{ width: 'auto', padding: '16px 40px', fontSize: '1.75rem', borderRadius: '1.25rem' }}>Get Started</Link>
         </div>
       </nav>
 
@@ -51,7 +51,7 @@ export default function Landing() {
              <div style={{ display: 'grid', gridTemplateColumns: '200px 1fr', gap: '24px', height: '450px' }}>
                 <div style={{ backgroundColor: 'var(--sys-color-surface-container-lowest)', borderRadius: '12px', padding: '16px' }}>
                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '24px', padding: '8px' }}>
-                      <Settings size={20} color="var(--sys-color-primary)" />
+                      <img src="/logo.png" alt="CartFlow AI Logo" style={{ height: '32px', width: '32px', objectFit: 'contain' }} />
                       <span style={{ fontWeight: 700, fontSize: '0.875rem' }}>CartFlow AI</span>
                    </div>
                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -146,8 +146,7 @@ export default function Landing() {
 
       <footer style={{ padding: '80px', borderTop: '1px solid var(--sys-color-surface-container-high)', textAlign: 'center' }}>
          <div className="nav-logo" style={{ justifyContent: 'center', marginBottom: '24px' }}>
-            <Settings size={24} />
-            <span>CartFlow AI</span>
+            <img src="/fulllogo.png" alt="CartFlow AI Logo" style={{ height: '56px', objectFit: 'contain' }} />
          </div>
          <p style={{ color: 'var(--sys-color-on-surface-variant)', fontSize: '0.875rem' }}>
             &copy; 2026 CartFlow AI. All rights reserved. Built for the modern commerce.
