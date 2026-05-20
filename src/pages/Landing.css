@@ -10,7 +10,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 40px;
+  padding: 0 80px;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -31,20 +31,23 @@
 
 .nav-links {
   display: flex;
-  gap: 32px;
+  gap: 48px;
   align-items: center;
 }
 
 .nav-link {
   text-decoration: none;
-  color: var(--sys-color-on-surface-variant);
-  font-weight: 500;
-  font-size: 1.75rem;
-  transition: color 0.2s;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: opacity 0.2s;
+  background: linear-gradient(135deg, var(--sys-color-on-surface), var(--sys-color-primary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .nav-link:hover {
-  color: var(--sys-color-primary);
+  opacity: 0.7;
 }
 
 .hero-section {
@@ -75,6 +78,7 @@
 }
 
 .hero-title {
+  font-family: var(--font-headline);
   font-size: 4.5rem;
   line-height: 1.1;
   font-weight: 800;

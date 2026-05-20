@@ -12,14 +12,14 @@ export default function Landing() {
 
       <nav className="nav-container">
         <Link to="/" className="nav-logo">
-          <img src="/fulllogo.png" alt="CartFlow AI" style={{ height: '128px', objectFit: 'contain' }} />
+          <img src="/fulllogo.png" alt="CartFlow AI" style={{ height: '72px', objectFit: 'contain' }} />
         </Link>
         <div className="nav-links">
           <a href="#features" className="nav-link">Features</a>
           <a href="#solutions" className="nav-link">Solutions</a>
           <a href="#pricing" className="nav-link">Pricing</a>
           <Link to="/login" className="nav-link" style={{ fontWeight: 700, color: 'var(--sys-color-primary)' }}>Sign In</Link>
-          <Link to="/signup" className="btn-primary" style={{ width: 'auto', padding: '16px 40px', fontSize: '1.75rem', borderRadius: '1.25rem' }}>Get Started</Link>
+          <Link to="/signup" className="btn-primary" style={{ width: 'auto', padding: '10px 24px' }}>Get Started</Link>
         </div>
       </nav>
 

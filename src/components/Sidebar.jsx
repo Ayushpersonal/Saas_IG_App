@@ -28,7 +28,16 @@ export default function Sidebar() {
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '40px' }}>
         <img src="/logo.png" alt="CartFlow AI Logo" style={{ width: '48px', height: '48px', objectFit: 'contain' }} />
         <div>
-          <h2 style={{ fontSize: '1.25rem', margin: 0, fontWeight: 700 }}>CartFlow AI</h2>
+          <h2 style={{ 
+            fontSize: '1.25rem', 
+            margin: 0, 
+            fontWeight: 800,
+            fontFamily: 'var(--font-headline)',
+            background: 'linear-gradient(135deg, var(--sys-color-on-surface), var(--sys-color-primary))',
+            WebkitBackgroundClip: 'text',
+            backgroundClip: 'text',
+            WebkitTextFillColor: 'transparent'
+          }}>CartFlow AI</h2>
           <span style={{ fontSize: '0.75rem', color: 'var(--sys-color-secondary)' }}>Automation Hub</span>
         </div>
       </div>
